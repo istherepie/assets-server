@@ -1,0 +1,16 @@
+.DS_Store
+.env
+
+# Node
+node_modules
+
+# Builds
+build
+dist
+
+# Notes
+todo.txt
+notes.txt
+
+# Tooling
+.idea

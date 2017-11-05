@@ -35,7 +35,11 @@ module.exports = {
                 }
             })   
 
-            // Check that the file exists
+            /** 
+             * Check that the file exists
+             * TODO: Currently using fs.existSync as fs.exist is deprecated
+             * COMMENT: It's crude but will suffice for now
+             */ 
             let check = fs.existsSync(asset.file)
             if (!check) {
                 let index = request.assets.indexOf(asset)

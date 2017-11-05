@@ -33,7 +33,7 @@ app.get('/:handle', (request, response) => {
     })
     .catch(error => {
         return response
-            .status(400)
+            .status(500)
             .json(error)
     }) 
 })

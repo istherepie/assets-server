@@ -3,7 +3,7 @@ const redis = require('redis')
 const config = {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT,
-    password: '2^ApZVOx4662Sxf.(_]lSqS4zF_a8K'
+    password: process.env.REDIS_PASS
 }
 
 const prefix = 'asset::'

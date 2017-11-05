@@ -22,7 +22,9 @@ async function storeProcedure(assets) {
 // POST /create/assets
 router.post('/', async (request, response) => {
     const procedure = await storeProcedure(request.assets)
-    response.json(procedure)
+    response
+        .status(201)
+        .json(procedure)
 })
 
 module.exports = router

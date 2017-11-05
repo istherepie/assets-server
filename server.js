@@ -21,6 +21,41 @@ app.get('/', (request, response) => {
     return response.json(context)
 })
 
+const store = require('./store')
+
+app.get('/:handle', (request, response) => {
+    const handle = request.params.handle
+    store.getHandle(handle)
+    .then(reply => {
+        return response.json(reply)
+    })
+    .catch(error => {
+        return response
+            .status(400)
+            .json(error)
+    }) 
+})
+
+app.get('/:handle/:resource', (request, response) => {
+    const handle = request.params.handle
+    const resource = request.params.resource
+
+    store.getResource(handle, resource)
+    .then(reply => {
+        if (!reply) {
+            return response
+                .status(404)
+                .json({ error: "The resource does not exist"})
+        }
+        return response.sendFile(reply)
+    })
+    .catch(error => {
+        return response
+            .status(400)
+            .json(error)
+    }) 
+})
+
 // Create
 app.use('/create/assets', createRoute)
 

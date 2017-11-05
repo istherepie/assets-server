@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const helmet = require('helmet')
 
 // Routes
 const createRoute = require('./create')
@@ -10,6 +11,7 @@ const createRoute = require('./create')
 const port = 3000
 
 // Middleware
+app.use(helmet())
 app.use(bodyParser.json())
 
 // Index
